@@ -13,7 +13,7 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal.
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [URL_REPOSITORI_ANDA]
+    git clone https://github.com/NadzalIsmailHamdzah/aplikasi_screening_psa.git
     cd aplikasi-screening-psa
     ```
 
@@ -24,7 +24,7 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal.
     ```
 
 3.  **Buat file `.env`:**
-    Salin file `.env.example` (jika ada) atau buat file baru bernama `.env` di dalam folder `server/` dan isi sesuai konfigurasi Anda.
+    Buat file baru bernama `.env` di dalam folder `server/` dan isi sesuai konfigurasi Anda.
 
 4.  **Setup Database:**
     - Nyalakan server MySQL Anda.
@@ -50,4 +50,4 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal.
     ```bash
     npm run dev
     ```
-    Aplikasi React akan berjalan di `http://localhost:5173` (atau port lain yang tersedia).
+    Aplikasi React akan berjalan di `http://localhost:5173`.
