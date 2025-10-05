@@ -1,0 +1,35 @@
+# ## Dependencies ##
+# Abaikan folder node_modules di semua direktori
+node_modules/
+/client/node_modules/
+/server/node_modules/
+
+# ## Build Artifacts ##
+# Abaikan folder build dari frontend (Vite/Create React App)
+/client/dist
+/client/build
+/client/.vite
+
+# ## Environment Variables ##
+# Abaikan file .env yang berisi informasi sensitif
+.env
+.env.*
+!.env.example
+
+# ## Logs ##
+# Abaikan file log dari npm atau lainnya
+npm-debug.log*
+yarn-error.log
+yarn-debug.log
+pnpm-debug.log
+
+# ## IDE & Editor Directories ##
+# Abaikan folder spesifik dari editor kode
+.idea/
+.vscode/
+*.swp
+
+# ## Operating System Files ##
+# Abaikan file sistem operasi
+.DS_Store
+Thumbs.db
