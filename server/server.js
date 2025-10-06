@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 import { sequelize, connectDB } from './config/db.js';
 import applicantRoutes from './routes/applicantRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,6 +28,7 @@ app.get('/api', (req, res) => {
 });
 
 // Gunakan Routes
+app.use('/api/auth', authRoutes); 
 app.use('/api/applicants', applicantRoutes);
 
 // Fungsi untuk memulai server
