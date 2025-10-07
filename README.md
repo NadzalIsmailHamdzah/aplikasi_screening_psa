@@ -1,53 +1,98 @@
-# aplikasi_screening_psa
+# Aplikasi Screening Peserta PSA
 
-## 🚀 Panduan Instalasi & Menjalankan Proyek
+Aplikasi ini adalah sistem untuk melakukan screening dan penilaian calon peserta Pelatihan Vokasi dan Peningkatan Produktivitas (PSA).
 
-Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal.
+## Fitur
+- Pendaftaran dan login untuk admin.
+- Pendaftaran data pelamar oleh admin.
+- Penilaian pelamar berdasarkan berbagai kriteria.
+- Unggah foto pelamar.
+- Tampilan daftar dan detail pelamar.
 
-### ### Prasyarat
-- [Node.js](https://nodejs.org/) (v18 atau lebih baru)
-- [Git](https://git-scm.com/)
-- Server MySQL (misalnya dari [XAMPP](https://www.apachefriends.org/index.html) atau [MySQL Community Server](https://dev.mysql.com/downloads/mysql/))
+## Teknologi yang Digunakan
+- **Backend**: Node.js, Express, Sequelize, MySQL
+- **Frontend**: React, Vite, Tailwind CSS
 
-### ### 1. Backend Setup (`server/`)
+## Prasyarat
+- [Node.js](https://nodejs.org/) (versi 14 atau lebih tinggi)
+- [NPM](https://www.npmjs.com/)
+- Server Database [MySQL](https://www.mysql.com/)
 
-1.  **Clone repositori ini:**
-    ```bash
-    git clone https://github.com/NadzalIsmailHamdzah/aplikasi_screening_psa.git
-    cd aplikasi-screening-psa
-    ```
+## Panduan Instalasi
 
-2.  **Masuk ke direktori server dan install dependensi:**
+### 1. Clone Repositori
+Clone repositori ini ke mesin lokal Anda:
+```bash
+git clone https://github.com/NadzalIsmailHamdzah/aplikasi_screening_psa.git
+cd aplikasi_screening_psa
+```
+
+### 2. Setup Backend
+Langkah-langkah untuk menyiapkan dan menjalankan server backend.
+
+1.  **Masuk ke direktori `server`:**
     ```bash
     cd server
+    ```
+
+2.  **Instal dependensi:**
+    ```bash
     npm install
     ```
 
 3.  **Buat file `.env`:**
-    Buat file baru bernama `.env` di dalam folder `server/` dan isi sesuai konfigurasi Anda.
+    Buat file bernama `.env` di dalam direktori `server` dan isi dengan konfigurasi database Anda.
+    ```env
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=password_database_anda
+    DB_NAME=nama_database_anda
+    JWT_SECRET=rahasia_jwt_anda
+    ```
+    Ganti `password_database_anda`, `nama_database_anda`, dan `rahasia_jwt_anda` dengan nilai Anda sendiri.
 
-4.  **Setup Database:**
-    - Nyalakan server MySQL Anda.
-    - Buat database baru menggunakan MySQL Workbench atau phpMyAdmin. Pastikan namanya sama dengan `DB_NAME` di file `.env` Anda.
+4.  **Buat Database:**
+    Pastikan Anda telah membuat database di MySQL dengan nama yang sama seperti yang Anda tentukan di `DB_NAME`.
 
-5.  **Jalankan server backend:**
+5.  **Jalankan Migrasi Database:**
+    Perintah ini akan membuat tabel-tabel yang diperlukan di database Anda.
+    ```bash
+    npx sequelize-cli db:migrate
+    ```
+
+6.  **Jalankan Seeder (Opsional):**
+    Perintah ini akan menambahkan data awal ke database, seperti akun admin default.
+    ```bash
+    npx sequelize-cli db:seed:all
+    ```
+    Akun admin default:
+    - **Email**: `admin@example.com`
+    - **Password**: `password`
+
+7.  **Jalankan Server Backend:**
     ```bash
     npm run dev
     ```
     Server akan berjalan di `http://localhost:5000`.
 
-### ### 2. Frontend Setup (`client/`)
+### 3. Setup Frontend
+Langkah-langkah untuk menyiapkan dan menjalankan aplikasi client.
 
-1.  **Buka terminal baru** di direktori root proyek.
-
-2.  **Masuk ke direktori client dan install dependensi:**
+1.  **Buka terminal baru** dan masuk ke direktori `client`:
     ```bash
     cd client
+    ```
+
+2.  **Instal dependensi:**
+    ```bash
     npm install
     ```
 
-3.  **Jalankan aplikasi frontend:**
+3.  **Jalankan Server Pengembangan Frontend:**
     ```bash
     npm run dev
     ```
-    Aplikasi React akan berjalan di `http://localhost:5173`.
+    Aplikasi React akan berjalan di `http://localhost:5173` (atau port lain yang tersedia).
+
+### 4. Selesai!
+Sekarang Anda dapat membuka `http://localhost:5173` di browser Anda untuk menggunakan aplikasi.
